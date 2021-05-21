@@ -1,0 +1,18 @@
+
+// create a new topic
+kafka-topics --create --zookeeper tekpix-zookeeper:2181 --partitions 1 --replication-factor 1 --topic orders
+
+// list all topics
+kafka-topics --list --zookeeper tekpix-zookeeper:2181
+
+// describe topic
+kafka-topics --zookeeper tekpix-zookeeper:2181 --describe --topic orders
+
+// Show first ten messages
+kafka-console-consumer --bootstrap-server localhost:9092 --topic test --from-beginning --max-messages 10
+
+// Consumer
+kafka-console-consumer --bootstrap-server localhost:9092 --topic orders
+
+// Producer
+kafka-console-producer --topic orders --broker-list localhost:9092
