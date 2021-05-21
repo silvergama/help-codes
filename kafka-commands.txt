@@ -16,3 +16,23 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic orders
 
 // Producer
 kafka-console-producer --topic orders --broker-list localhost:9092
+
+
+
+// create a new topic
+$KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper tekpix-zookeeper:2181 --partitions 1 --replication-factor 1 --topic orders
+
+// list all topics
+$KAFKA_HOME/bin/kafka-topics.sh --list --zookeeper tekpix-zookeeper:2181
+
+// describe topic
+$KAFKA_HOME/bin/kafka-topics.sh --zookeeper tekpix-zookeeper:2181 --describe --topic orders
+
+// Show first ten messages
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic orders --from-beginning --max-messages 10
+
+// Consumer
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic orders
+
+// Producer
+$KAFKA_HOME/bin/kafka-console-producer.sh --topic orders --broker-list localhost:9092
